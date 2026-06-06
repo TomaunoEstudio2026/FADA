@@ -6096,6 +6096,101 @@ OioUdAFQoUKAOioUKAPuoqBo6AKhQoUAKFChQAoUKFAChQoUAKOioUAKFChQAox1od1FQB0VH3UV
 AChR91CgCoUZoqAFHRUKAFChR43oAqFGaKgBQoUKAFChQoAUKFCgDoUYGRQoD//Z" alt="Lista de precios FADA" id="pricelist">
 </div>
 
+
+<!-- LISTA DE PRECIOS DESPLEGABLE -->
+<div style="padding: 6px 16px 2px;">
+  <button onclick="toggleLista()" id="btn-lista" style="
+    display:flex; align-items:center; justify-content:space-between;
+    width:100%; padding:13px 16px;
+    background:#1e0015; color:#f5c842;
+    border:1.5px solid #c8005b88; border-radius:14px;
+    font-size:15px; font-weight:700; cursor:pointer; text-align:left;
+  ">
+    <span>📋 Ver lista de precios</span>
+    <span id="lista-arrow" style="font-size:18px; transition:transform 0.3s">▼</span>
+  </button>
+
+  <div id="lista-precios" style="display:none; margin-top:8px; background:#12000b; border:1.5px solid #c8005b44; border-radius:14px; overflow:hidden;">
+
+    <!-- Copiar lista -->
+    <div style="padding:12px 16px 0; text-align:right;">
+      <button onclick="copiarLista()" id="btn-copy-lista" style="
+        display:inline-flex; align-items:center; gap:6px;
+        padding:7px 14px; background:transparent;
+        color:#f5c842; border:1.5px solid #f5c84266;
+        border-radius:8px; font-size:12px; font-weight:700; cursor:pointer;
+      ">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span id="copy-lista-txt">Copiar lista</span>
+      </button>
+    </div>
+
+    <div style="padding:14px 18px 18px; line-height:1;">
+
+      <div style="margin-bottom:16px;">
+        <div style="font-size:13px; font-weight:800; color:#f5c842; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; padding-bottom:6px; border-bottom:1px solid #c8005b33;">🎬 Coreografías</div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:7px 0; border-bottom:1px solid #ffffff0d;">
+          <span style="font-size:14px; color:#eee;">✨ 1 Coreografía Completa <span style="font-size:11px; color:#e87aad;">(digital)</span></span>
+          <span style="font-size:16px; font-weight:800; color:#fff; margin-left:10px; white-space:nowrap;">$10.000</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:7px 0;">
+          <span style="font-size:14px; color:#eee;">✨ Pack 3 Coreografías <span style="font-size:11px; color:#e87aad;">(digital)</span></span>
+          <span style="font-size:16px; font-weight:800; color:#fff; margin-left:10px; white-space:nowrap;">$22.000</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <div style="font-size:13px; font-weight:800; color:#f5c842; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; padding-bottom:6px; border-bottom:1px solid #c8005b33;">🖼️ Fotografía</div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:7px 0; border-bottom:1px solid #ffffff0d;">
+          <span style="font-size:14px; color:#eee;">📷 Foto impresa <span style="font-size:11px; color:#e87aad;">(estudio o competencia)</span></span>
+          <span style="font-size:16px; font-weight:800; color:#fff; margin-left:10px; white-space:nowrap;">$8.000</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:7px 0;">
+          <span style="font-size:14px; color:#eee;">📸 Mini Sesión de Fotos</span>
+          <span style="font-size:16px; font-weight:800; color:#fff; margin-left:10px; white-space:nowrap;">$15.000</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <div style="font-size:13px; font-weight:800; color:#f5c842; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; padding-bottom:6px; border-bottom:1px solid #c8005b33;">🎥 Video</div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:7px 0;">
+          <span style="font-size:14px; color:#eee;">🎥 Video de tu presentación</span>
+          <span style="font-size:16px; font-weight:800; color:#fff; margin-left:10px; white-space:nowrap;">$15.000</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:13px; font-weight:800; color:#f5c842; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; padding-bottom:6px; border-bottom:1px solid #c8005b33;">🔥 Combos Promocionales</div>
+
+        <div style="background:#1e0015; border:1px solid #c8005b55; border-radius:10px; padding:11px 14px; margin-bottom:8px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+            <span style="font-size:14px; font-weight:800; color:#fff;">🥉 A — Combo Estándar</span>
+            <span style="font-size:17px; font-weight:800; color:#f5c842; white-space:nowrap;">$20.000</span>
+          </div>
+          <div style="font-size:12px; color:#e87aad;">📸 1 Coreografía + 🎥 Video</div>
+        </div>
+
+        <div style="background:#1e0015; border:1px solid #c8005b55; border-radius:10px; padding:11px 14px; margin-bottom:8px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+            <span style="font-size:14px; font-weight:800; color:#fff;">🥈 B — Combo Especial</span>
+            <span style="font-size:17px; font-weight:800; color:#f5c842; white-space:nowrap;">$26.000</span>
+          </div>
+          <div style="font-size:12px; color:#e87aad;">📸 1 Coreografía + 🎥 Video + 🖼️ 1 Impresión</div>
+        </div>
+
+        <div style="background:#2a0a00; border:1px solid #f5c84266; border-radius:10px; padding:11px 14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+            <span style="font-size:14px; font-weight:800; color:#f5c842;">🥇 C — Combo Premium</span>
+            <span style="font-size:17px; font-weight:800; color:#f5c842; white-space:nowrap;">$35.000</span>
+          </div>
+          <div style="font-size:12px; color:#ffdb88;">📸 1 Coreografía + 🎥 Video + 🖼️ 1 Impresión + 📷 Mini Sesión</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- WHATSAPP -->
 <div class="wa-section">
   <a class="wa-btn" href="#" onclick="abrirWA(event)">
@@ -6177,6 +6272,53 @@ _Festival Argentino de Danzas Árabes_
 
 📁 Fotos y videos del evento disponibles ~5 días después en:
 https://drive.google.com/drive/folders/1ZBE1xOPq89bM7ynFdpFjaSeoFxHuk468?usp=sharing`;
+
+function toggleLista() {
+  const div = document.getElementById('lista-precios');
+  const arrow = document.getElementById('lista-arrow');
+  const btn = document.getElementById('btn-lista');
+  const open = div.style.display === 'none';
+  div.style.display = open ? 'block' : 'none';
+  arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+  btn.querySelector('span').textContent = open ? '📋 Ocultar lista de precios' : '📋 Ver lista de precios';
+}
+
+function copiarLista() {
+  const texto = `🌟 FADA 10 Años – Lista de Precios
+Sábado 6 de Junio
+
+🎬 COREOGRAFÍAS
+✨ 1 Coreografía Completa (digital) — $10.000
+✨ Pack 3 Coreografías (digital) — $22.000
+
+🖼️ FOTOGRAFÍA
+📷 Foto impresa (estudio o competencia) — $8.000
+📸 Mini Sesión de Fotos — $15.000
+
+🎥 VIDEO
+🎥 Video de tu presentación — $15.000
+
+🔥 COMBOS PROMOCIONALES
+🥉 A - Combo Estándar — $20.000
+   📸 1 Coreografía + 🎥 Video
+🥈 B - Combo Especial — $26.000
+   📸 1 Coreografía + 🎥 Video + 🖼️ 1 Impresión
+🥇 C - Combo Premium — $35.000
+   📸 1 Coreografía + 🎥 Video + 🖼️ 1 Impresión + 📷 Mini Sesión`;
+
+  navigator.clipboard.writeText(texto).then(() => {
+    const btn = document.getElementById('btn-copy-lista');
+    const txt = document.getElementById('copy-lista-txt');
+    btn.style.borderColor = '#4caf50';
+    btn.style.color = '#4caf50';
+    txt.textContent = '✓ Copiada!';
+    setTimeout(() => {
+      btn.style.borderColor = '#f5c84266';
+      btn.style.color = '#f5c842';
+      txt.textContent = 'Copiar lista';
+    }, 2500);
+  });
+}
 
 function abrirWA(e) {
   e.preventDefault();
