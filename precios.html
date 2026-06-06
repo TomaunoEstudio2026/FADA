@@ -6281,6 +6281,11 @@ function toggleLista() {
   div.style.display = open ? 'block' : 'none';
   arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
   btn.querySelector('span').textContent = open ? '📋 Ocultar lista de precios' : '📋 Ver lista de precios';
+  if (open) {
+    setTimeout(() => {
+      div.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  }
 }
 
 function copiarLista() {
