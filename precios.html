@@ -4,153 +4,108 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>FADA 10 Años – Lista de Precios</title>
+<title>FADA 10 Años – Precios</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     background: #0d0007;
     color: #fff;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
-
   header {
-    width: 100%;
-    background: linear-gradient(135deg, #1a0010 0%, #0d0007 100%);
-    border-bottom: 1px solid #c8005b44;
+    background: linear-gradient(135deg, #1a0010, #0d0007);
+    border-bottom: 1px solid #c8005b55;
     padding: 14px 20px 12px;
     text-align: center;
   }
+  header h1 { font-size: 18px; font-weight: 800; color: #f5c842; letter-spacing: 1px; text-transform: uppercase; }
+  header p  { font-size: 12px; color: #e87aad; margin-top: 2px; }
 
-  header h1 {
-    font-size: 18px;
-    font-weight: 700;
-    color: #f5c842;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  header p {
-    font-size: 12px;
-    color: #e87aad;
-    margin-top: 2px;
-  }
-
-  .hint {
-    font-size: 12px;
-    color: #e87aad88;
-    padding: 8px 16px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
+  .hint { font-size: 12px; color: #e87aad88; padding: 8px 16px; text-align: center; }
 
   .img-container {
-    width: 100%;
-    flex: 1;
-    overflow: auto;
+    width: 100%; overflow: auto;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x pan-y pinch-zoom;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
     padding: 8px;
+    display: flex; justify-content: center;
   }
-
   .img-container img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 12px;
-    touch-action: pinch-zoom;
-    cursor: zoom-in;
+    max-width: 100%; height: auto; border-radius: 12px;
+    touch-action: pinch-zoom; cursor: zoom-in; display: block;
+    transition: transform 0.3s ease;
   }
 
-  .payment-section {
-    width: 100%;
-    background: #12000b;
-    border-top: 1px solid #c8005b44;
-    padding: 18px 20px 28px;
+  /* WhatsApp */
+  .wa-section { padding: 14px 16px 6px; }
+  .wa-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; padding: 14px;
+    background: #25d366; color: #fff;
+    border: none; border-radius: 14px;
+    font-size: 16px; font-weight: 700; cursor: pointer;
+    text-decoration: none;
   }
+  .wa-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
 
+  /* Google Drive */
+  .drive-section { padding: 10px 16px 6px; }
+  .drive-card {
+    background: #0d1a3a;
+    border: 1.5px solid #1e5dbe88;
+    border-radius: 14px;
+    padding: 14px 16px;
+  }
+  .drive-card h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; color: #7ab3ff; margin-bottom: 4px; }
+  .drive-card p  { font-size: 12px; color: #7ab3ffaa; margin-bottom: 10px; line-height: 1.5; }
+  .drive-btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; padding: 11px;
+    background: #1e5dbe; color: #fff;
+    border: none; border-radius: 10px;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+    text-decoration: none;
+  }
+  .drive-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  /* Pago */
+  .payment-section { padding: 10px 16px 28px; }
   .payment-section h2 {
-    text-align: center;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #f5c842;
-    margin-bottom: 14px;
+    text-align: center; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 1.5px; color: #f5c842; margin-bottom: 12px;
   }
-
-  .aliases {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
+  .aliases { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .alias-card {
-    background: #1e0015;
-    border: 1px solid #c8005b66;
-    border-radius: 12px;
-    padding: 12px 14px;
-    text-align: center;
+    background: #1e0015; border: 1px solid #c8005b66;
+    border-radius: 12px; padding: 12px 10px; text-align: center;
   }
+  .alias-card .icon   { font-size: 22px; margin-bottom: 4px; }
+  .alias-card .person { font-size: 11px; color: #e87aad; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 3px; line-height: 1.3; }
+  .alias-card .alias  { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 8px; word-break: break-all; }
 
-  .alias-card .person {
-    font-size: 11px;
-    color: #e87aad;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 4px;
+  .btn-copy {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    width: 100%; padding: 9px 6px;
+    background: transparent; color: #f5c842;
+    border: 1.5px solid #f5c84288; border-radius: 8px;
+    font-size: 12px; font-weight: 700; cursor: pointer;
   }
-
-  .alias-card .alias {
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
-    word-break: break-all;
-    letter-spacing: 0.3px;
-  }
-
-  .alias-card .icon {
-    font-size: 22px;
-    margin-bottom: 6px;
-  }
-
-  footer {
-    text-align: center;
-    font-size: 11px;
-    color: #ffffff33;
-    padding: 8px 16px 12px;
-  }
-
-  @media (min-width: 600px) {
-    .aliases { max-width: 440px; margin: 0 auto; }
-    .img-container img { max-width: 580px; }
-  }
+  .btn-copy.copied { background: #1a3000; border-color: #4caf50; color: #4caf50; }
+  footer { text-align: center; font-size: 11px; color: #ffffff33; padding: 4px 16px 16px; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>🌟 FADA 10 Años – Sábado 6 de Junio</h1>
+  <h1>🌟 FADA 10 Años · Sábado 6 de Junio</h1>
   <p>Festival Argentino de Danzas Árabes</p>
 </header>
 
-<div class="hint">
-  <span>👆</span> Pellizca la imagen para hacer zoom
-</div>
+<div class="hint">👆 Pellizca la imagen para zoom · Doble tap para ampliar</div>
 
 <div class="img-container">
-  <img
-    src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdC
+  <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdC
 IFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAA
 AADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlk
 ZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAA
@@ -6138,40 +6093,113 @@ Kc2y4TrZNbmwJLkeQ3nlcQcEZ2NNR1pRPShlCcoSUouzRI3y/wB4vfZ+6s96SGs8iVYCU564AAHw
 1FHOaUPSk1daXuZ1a1StJzqSbb4t3YM0Ad6AFChUDJ8aFHjbNFigCoUeN6KgBQoUZoAqUjOliQ28
 ACUKCgD34OaToUJTad0OLjJVMnvy1pCVPOKWQOgyc03o8UCKEzm5ycpb2FQoUKGIKFChQAoxRUKA
 OioUdAFQoUKAOioUKAPuoqBo6AKhQoUAKFChQAoUKFAChQoUAKOioUAKFChQAox1od1FQB0VH3UV
-AChR91CgCoUZoqAFHRUKAFChR43oAqFGaKgBQoUKAFChQoAUKFCgDoUYGRQoD//Z"
-    alt="Lista de precios FADA Sábado"
-    id="pricelist"
-  />
+AChR91CgCoUZoqAFHRUKAFChR43oAqFGaKgBQoUKAFChQoAUKFCgDoUYGRQoD//Z" alt="Lista de precios FADA" id="pricelist">
 </div>
 
+<!-- WHATSAPP -->
+<div class="wa-section">
+  <a class="wa-btn" href="#" onclick="abrirWA(event)">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.845L.057 23.885a.5.5 0 0 0 .606.61l6.187-1.617A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.9 9.9 0 0 1-5.031-1.372l-.361-.214-3.741.979.997-3.648-.235-.374A9.9 9.9 0 0 1 2.1 12C2.1 6.534 6.534 2.1 12 2.1c5.465 0 9.9 4.434 9.9 9.9 0 5.465-4.435 9.9-9.9 9.9z"/></svg>
+    Compartir lista de precios por WhatsApp
+  </a>
+</div>
+
+<!-- GOOGLE DRIVE -->
+<div class="drive-section">
+  <div class="drive-card">
+    <h2>📁 Fotos y videos de la competencia</h2>
+    <p>El material estará disponible aproximadamente <strong style="color:#7ab3ff">5 días después</strong> del evento. ¡Guardá el link para no perderlo!</p>
+    <a class="drive-btn" href="https://drive.google.com/drive/folders/1ZBE1xOPq89bM7ynFdpFjaSeoFxHuk468?usp=sharing" target="_blank">
+      <svg viewBox="0 0 87.3 78" fill="currentColor"><path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3L27.5 53H0c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/><path d="M43.65 25L29.9 1.2C28.55 2 27.4 3.1 26.6 4.5L1.2 48.5C.4 49.9 0 51.45 0 53h27.5z" fill="#00ac47"/><path d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75L86.1 57.5c.8-1.4 1.2-2.95 1.2-4.5H59.8L73.55 76.8z" fill="#ea4335"/><path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/><path d="M59.8 53H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.4 4.5-1.2z" fill="#2684fc"/><path d="M73.4 26.5L60.7 4.5C59.9 3.1 58.75 2 57.4 1.2L43.65 25 59.8 53h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/></svg>
+      Ver fotos y videos en Google Drive
+    </a>
+  </div>
+</div>
+
+<!-- PAGO -->
 <div class="payment-section">
-  <h2>💳 Realizá tu pago con alias</h2>
+  <h2>💳 Realizá tu pago</h2>
   <div class="aliases">
+
     <div class="alias-card">
       <div class="icon">📸</div>
       <div class="person">Carlos Cabrera<br>Fotografía</div>
       <div class="alias">cc.fotografia.mp</div>
+      <button class="btn-copy" onclick="copiar('cc.fotografia.mp', this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span>Copiar alias</span>
+      </button>
     </div>
+
     <div class="alias-card">
       <div class="icon">🎬</div>
       <div class="person">Javier Móttola<br>Tomauno</div>
       <div class="alias">tomauno.a</div>
+      <button class="btn-copy"  onclick="copiar('tomauno.a', this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span>Copiar alias</span>
+      </button>
     </div>
+
   </div>
 </div>
 
 <footer>FADA Festival Oficial · @fadafestival</footer>
 
 <script>
-  const img = document.getElementById('pricelist');
-  let scale = 1;
-  img.addEventListener('dblclick', () => {
-    scale = scale === 1 ? 2.2 : 1;
-    img.style.transform = 'scale(' + scale + ')';
-    img.style.transformOrigin = 'top center';
-    img.style.transition = 'transform 0.3s ease';
-    img.style.cursor = scale === 1 ? 'zoom-in' : 'zoom-out';
+const PRECIOS_WA = `🌟 *FADA 10 Años – Sábado 6 de Junio*
+_Festival Argentino de Danzas Árabes_
+
+🎬 *COREOGRAFÍAS*
+✨ 1 Coreografía Completa (digital) — *$10.000*
+✨ Pack 3 Coreografías (digital) — *$22.000*
+
+🖼️ *FOTOGRAFÍA*
+📷 Foto impresa (estudio o competencia) — *$8.000*
+📸 Mini Sesión de Fotos — *$15.000*
+
+🎬 *VIDEO*
+🎥 Video de tu presentación — *$15.000*
+
+🔥 *COMBOS PROMOCIONALES*
+🥉 *A - Combo Estándar — $20.000*
+  📸 1 Coreografía + 🎥 Video
+
+🥈 *B - Combo Especial — $26.000*
+  📸 1 Coreografía + 🎥 Video + 🖼️ 1 Impresión
+
+🥇 *C - Combo Premium — $35.000*
+  📸 1 Coreografía + 🎥 Video + 🖼️ 1 Impresión + 📷 Mini Sesión
+
+💳 *Pagos:*
+📸 Carlos Cabrera (Fotografía): cc.fotografia.mp
+🎬 Javier Móttola (Tomauno): tomauno.a
+
+📁 Fotos y videos del evento disponibles ~5 días después en:
+https://drive.google.com/drive/folders/1ZBE1xOPq89bM7ynFdpFjaSeoFxHuk468?usp=sharing`;
+
+function abrirWA(e) {
+  e.preventDefault();
+  window.open("https://wa.me/?text=" + encodeURIComponent(PRECIOS_WA), "_blank");
+}
+
+function copiar(texto, btn) {
+  navigator.clipboard.writeText(texto).then(() => {
+    const span = btn.querySelector("span");
+    btn.classList.add("copied");
+    span.textContent = "✓ Copiado!";
+    setTimeout(() => { btn.classList.remove("copied"); span.textContent = "Copiar alias"; }, 2500);
   });
+}
+
+const img = document.getElementById("pricelist");
+let scale = 1;
+img.addEventListener("dblclick", () => {
+  scale = scale === 1 ? 2.2 : 1;
+  img.style.transform = "scale(" + scale + ")";
+  img.style.transformOrigin = "top center";
+  img.style.cursor = scale === 1 ? "zoom-in" : "zoom-out";
+});
 </script>
 </body>
 </html>
